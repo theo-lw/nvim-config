@@ -33,8 +33,11 @@ Plug 'Yggdroot/indentLine'
 " commentary.vim (Commenting Support) 
 Plug 'tpope/vim-commentary'
 
-" undotree (undo history visualizer)
+" undotree (Undo History Visualizer)
 Plug 'mbbill/undotree'
+
+" startify (Start Screen)
+Plug 'mhinz/vim-startify'
 
 call plug#end()
 
