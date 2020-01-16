@@ -33,6 +33,9 @@ Plug 'Yggdroot/indentLine'
 " commentary.vim (Commenting Support) 
 Plug 'tpope/vim-commentary'
 
+" undotree (undo history visualizer)
+Plug 'mbbill/undotree'
+
 call plug#end()
 
 " Color Scheme
@@ -95,3 +98,6 @@ autocmd vimenter * NERDTree
 
 " Let the mouse move between splits, scroll, enter visual mode, etc
 set mouse=a
+ 
+" At least 5 lines are visible below and above the cursor
+set scrolloff=5
