@@ -2,33 +2,36 @@
 
 call plug#begin()
 
-" Seoul256 Colorscheme
+" Seoul256 (Colorscheme)
 Plug 'junegunn/seoul256.vim'
 
-" CoC Autocompletion
+" CoC (Autocompletion, Linting)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" ALE Syntax Checking
-Plug 'dense-analysis/ale'
+" Vdebug (debugging in vim)
+Plug 'vim-vdebug/vdebug'
 
-" Fuzzy Finder File Search
+" FZF (File Search)
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
-" NerdTree File Display
+" NerdTree (File Display)
 Plug 'preservim/nerdtree'
 
-" GitGutter Git Diff Tool
+" GitGutter (Git Diff Tool)
 Plug 'airblade/vim-gitgutter'
 
-" Git Fugitive Git Status Tool
+" Git Fugitive (Git Status Tool)
 Plug 'tpope/vim-fugitive'
 
-" LightLine Status Line
+" LightLine (Status Line)
 Plug 'itchyny/lightline.vim'
 
-" Display indentation
+" IndentLine (Display Indentation)
 Plug 'Yggdroot/indentLine'
+
+" commentary.vim (Commenting Support) 
+Plug 'tpope/vim-commentary'
 
 call plug#end()
 
@@ -82,3 +85,13 @@ set foldenable
 set foldlevelstart=10
 set foldnestmax=10
 set foldmethod=indent
+
+" Splits
+set splitbelow
+set splitright
+
+" Display NerdTree automatically on startup
+autocmd vimenter * NERDTree
+
+" Let the mouse move between splits, scroll, enter visual mode, etc
+set mouse=a
