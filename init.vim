@@ -2,14 +2,11 @@
 
 call plug#begin()
 
-" Seoul256 (Colorscheme)
-Plug 'junegunn/seoul256.vim'
+" Gruvbox (colorscheme) 
+Plug 'morhetz/gruvbox'
 
 " CoC (Autocompletion, Linting)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" Vdebug (debugging in vim)
-Plug 'vim-vdebug/vdebug'
 
 " FZF (File Search)
 Plug '/usr/local/opt/fzf'
@@ -42,8 +39,7 @@ Plug 'mbbill/undotree'
 call plug#end()
 
 " Color Scheme
-let g:seoul256_background = 234
-colo seoul256
+colo gruvbox 
 
 " Autocomplete in command menu
 set wildmenu
@@ -146,10 +142,10 @@ autocmd VimEnter *
             \ |   wincmd w
             \ | endif
 
-" Display NerdTree automatically on startup
-autocmd vimenter * NERDTree
+" Display NerdTree automatically on startup and quit automatically
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-" Debugging Options (Wayfair PHP)
-let g:vdebug_options = {
-  \ 'path_maps': { "/wayfair/data/codebase/php": "Users/tw715u/codebase/php" },
-\ }
+" Enable true color
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
