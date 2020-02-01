@@ -24,6 +24,12 @@ Plug 'airblade/vim-gitgutter'
 " Git Fugitive (Git Status Tool)
 Plug 'tpope/vim-fugitive'
 
+" AutoPairs (closing brackets automatically) 
+Plug 'jiangmiao/auto-pairs' 
+
+" Rainbow (bracket highlighting)
+Plug 'luochen1990/rainbow'
+
 " LightLine (Status Line)
 Plug 'itchyny/lightline.vim'
 
@@ -33,13 +39,22 @@ Plug 'Yggdroot/indentLine'
 " commentary.vim (Commenting Support) 
 Plug 'tpope/vim-commentary'
 
+" vim-surround (dealing with brackets)
+Plug 'tpope/vim-surround'
+
 " undotree (Undo History Visualizer)
 Plug 'mbbill/undotree'
+
+" vim-toml (TOML syntax coloring)
+Plug 'cespare/vim-toml'
 
 call plug#end()
 
 " Color Scheme
 colo gruvbox 
+
+" Rainbow brackets
+let g:rainbow_active = 1
 
 " Autocomplete in command menu
 set wildmenu
@@ -48,10 +63,6 @@ set wildmenu
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-" Autocompletion colors
-highlight Pmenu ctermbg=2 guibg=2
-highlight PmenuSel ctermbg=235 guibg=235
 
 " Use `[g` and `]g` to navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
