@@ -198,6 +198,7 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let g:ale_list_window_size = 5
 let g:ale_close_preview_on_insert = 1
 let g:ale_cursor_detail = 1
+let g:ale_echo_cursor = 0
 " Auto close ALE error window
 autocmd QuitPre * if empty(&bt) | lclose | endif
 " Key mappings for next error
@@ -210,4 +211,4 @@ set undofile
 nmap <silent><s-w> <C-w>
 
 "Key mapping for going back
-nmap <silent><s-o> <C-w>
+nmap <silent><s-o> <C-o>
