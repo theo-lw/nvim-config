@@ -138,7 +138,12 @@ let g:lightline.component_type = {
       \     'linter_ok': 'right',
       \ }
 
-let g:lightline.active = { 'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ]] }
+let g:lightline.active = { 
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'filename', 'gitbranch', 'readonly', 'modified' ] ],  
+      \   'right': [ [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ],
+      \              [ 'lineinfo' ]]
+      \ }
 
 " Show line number and relative line numbers
 set number
@@ -195,3 +200,6 @@ let g:ale_close_preview_on_insert = 1
 let g:ale_cursor_detail = 1
 " Auto close ALE error window
 autocmd QuitPre * if empty(&bt) | lclose | endif
+
+" Persistent undo
+set undofile
