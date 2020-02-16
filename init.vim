@@ -8,9 +8,6 @@ Plug 'morhetz/gruvbox'
 " CoC (Autocompletion, Linting)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" ALE (Error Checking)
-Plug 'dense-analysis/ale'
-
 " FZF (File Search)
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
