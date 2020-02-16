@@ -209,3 +209,5 @@ set undofile
 " Key mapping for changing windows
 nmap <silent><s-w> <C-w>
 
+"Key mapping for going back
+nmap <silent><s-o> <C-w>
