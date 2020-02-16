@@ -5,6 +5,9 @@ call plug#begin()
 " Gruvbox (colorscheme) 
 Plug 'morhetz/gruvbox'
 
+" ALE (Linting)
+Plug 'dense-analysis/ale'
+
 " CoC (Autocompletion, Linting)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
