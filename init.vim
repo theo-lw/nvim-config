@@ -201,7 +201,11 @@ let g:ale_cursor_detail = 1
 " Auto close ALE error window
 autocmd QuitPre * if empty(&bt) | lclose | endif
 " Key mappings for next error
-nmap <silent> <C-e> <Plug>(ale_next_wrap)
+nmap <silent><s-e> <Plug>(ale_next_wrap)
 
 " Persistent undo
 set undofile
+
+" Key mapping for changing windows
+nmap <silent><s-w> <C-w>
+
