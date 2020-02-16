@@ -36,6 +36,9 @@ Plug 'itchyny/lightline.vim'
 " IndentLine (Display Indentation)
 Plug 'Yggdroot/indentLine'
 
+" Easy Motion (quick vim motions)
+Plug 'easymotion/vim-easymotion'
+
 " commentary.vim (Commenting Support) 
 Plug 'tpope/vim-commentary'
 
@@ -86,11 +89,14 @@ function! s:show_documentation()
 endfunction
 
 " Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
+nmap <SPACE>rn <Plug>(coc-rename)
 
 " Remap for format selected region
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+xmap <SPACE>f  <Plug>(coc-format-selected)
+nmap <SPACE>f  <Plug>(coc-format-selected)
+
+" Remap for default EasyMotion movements
+map <SPACE> <Plug>(easymotion-prefix)
 
 augroup mygroup
   autocmd!
@@ -102,7 +108,7 @@ augroup end
 
 " Status Line
 let g:lightline = {
-  \ 'colorscheme': 'seoul256',  
+  \ 'colorscheme': 'gruvbox',  
   \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
     \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
