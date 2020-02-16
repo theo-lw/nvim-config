@@ -1,4 +1,4 @@
-" Plugins
+Plugins
 
 call plug#begin()
 
@@ -35,6 +35,9 @@ Plug 'luochen1990/rainbow'
 
 " LightLine (Status Line)
 Plug 'itchyny/lightline.vim'
+
+" Lightline integration with ALE
+Plug 'maximbaz/lightline-ale'
 
 " IndentLine (Display Indentation)
 Plug 'Yggdroot/indentLine'
@@ -121,6 +124,24 @@ let g:lightline = {
     \ },
   \ }
 
+let g:lightline.component_expand = {
+      \  'linter_checking': 'lightline#ale#checking',
+      \  'linter_infos': 'lightline#ale#infos',
+      \  'linter_warnings': 'lightline#ale#warnings',
+      \  'linter_errors': 'lightline#ale#errors',
+      \  'linter_ok': 'lightline#ale#ok',
+      \ }
+
+let g:lightline.component_type = {
+      \     'linter_checking': 'right',
+      \     'linter_infos': 'right',
+      \     'linter_warnings': 'warning',
+      \     'linter_errors': 'error',
+      \     'linter_ok': 'right',
+      \ }
+
+let g:lightline.active = { 'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ]] }
+
 " Show line number and relative line numbers
 set number
 set relativenumber
@@ -170,5 +191,9 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " Enable true color
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
-" Rust format on save
-let g:rustfmt_autosave = 1
+" ALE settings
+let g:ale_list_window_size = 5
+let g:ale_close_preview_on_insert = 1
+let g:ale_cursor_detail = 1
+" Auto close ALE error window
+autocmd QuitPre * if empty(&bt) | lclose | endif
