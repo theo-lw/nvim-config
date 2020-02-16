@@ -1,5 +1,3 @@
-Plugins
-
 call plug#begin()
 
 " Gruvbox (colorscheme) 
