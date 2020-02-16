@@ -166,3 +166,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 " Enable true color
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+" Rust format on save
+let g:rustfmt_autosave = 1
