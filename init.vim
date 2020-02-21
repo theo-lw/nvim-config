@@ -212,3 +212,6 @@ nmap <silent><s-w> <C-w>
 
 "Key mapping for going back
 nmap <silent><s-o> <C-o>
+
+" Key mapping for redo 
+nmap <silent><s-r> <C-r>
