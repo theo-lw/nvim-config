@@ -3,6 +3,9 @@ call plug#begin()
 " Gruvbox (colorscheme) 
 Plug 'morhetz/gruvbox'
 
+" ALE (Linting) 
+Plug 'dense-analysis/ale'
+
 " CoC (Autocompletion, Linting)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -192,7 +195,10 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 " ALE settings
-let g:ale_list_window_size = 5
+let g:ale_linters_explicit = 1
+let g:ale_linters = {'cpp': ['clang']}
+let g:ale_cpp_clang_options = '-Weverything -std=c++17'
+let g:ale_list_window_size = 2
 let g:ale_close_preview_on_insert = 1
 let g:ale_cursor_detail = 1
 let g:ale_echo_cursor = 0
