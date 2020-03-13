@@ -198,15 +198,15 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let g:ale_linters_explicit = 1
 let g:ale_linters = {'cpp': ['clang']}
 let g:ale_cpp_clang_options = '-Weverything -std=c++17'
-let g:ale_list_window_size = 2
+let g:ale_list_window_size = 5
 let g:ale_close_preview_on_insert = 1
-let g:ale_cursor_detail = 1
-let g:ale_echo_cursor = 0
+let g:ale_echo_cursor = 1
 " Auto close ALE error window
 autocmd QuitPre * if empty(&bt) | lclose | endif
 " Key mappings for next error
 nmap <silent><s-e> <Plug>(ale_next_wrap)
-
+" Key mapping to display full error
+nmap <silent><s-f> :ALEDetail<CR>
 " Persistent undo
 set undofile
 
@@ -218,3 +218,8 @@ nmap <silent><s-o> <C-o>
 
 " Key mapping for redo 
 nmap <silent><s-r> <C-r>
+
+nnoremap j gj
+nnoremap gj j
+nnoremap k gk
+nnoremap gk k
