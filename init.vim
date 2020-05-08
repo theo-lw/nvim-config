@@ -9,6 +9,9 @@ Plug 'dense-analysis/ale'
 " CoC (Autocompletion, Linting)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" YATS (Typescript syntax highlighting)
+Plug 'HerringtonDarkholme/yats.vim'
+
 " FZF (File Search)
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
@@ -187,16 +190,25 @@ autocmd VimEnter *
             \ | endif
 
 " Display NerdTree automatically on startup and quit automatically
-autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd p
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" autocmd VimEnter * NERDTree
+" autocmd VimEnter * wincmd p
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Enable true color
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 " ALE settings
 let g:ale_linters_explicit = 1
-let g:ale_linters = {'cpp': ['clang']}
+let g:ale_linters = {'cpp': ['clang'], 'rust': ['rls']}
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+    \ 'rust': ['rustfmt']
+\ }
+let g:ale_rust_rls_config = {
+	\ 'rust': {
+		\ 'clippy_preference': 'on'
+	\ }
+\ }
 let g:ale_cpp_clang_options = '-Weverything -std=c++17'
 let g:ale_list_window_size = 5
 let g:ale_close_preview_on_insert = 1
@@ -213,13 +225,17 @@ set undofile
 " Key mapping for changing windows
 nmap <silent><s-w> <C-w>
 
-"Key mapping for going back
+" Key mapping for going back
 nmap <silent><s-o> <C-o>
 
 " Key mapping for redo 
 nmap <silent><s-r> <C-r>
 
+" Mapping k and j to use visual lines
 nnoremap j gj
 nnoremap gj j
 nnoremap k gk
 nnoremap gk k
+
+" Making FZF ignore gitignored files
+let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
